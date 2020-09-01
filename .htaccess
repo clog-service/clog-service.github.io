@@ -30,10 +30,7 @@
 
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+  RewriteCond %{REQUEST_URI} !(/$|\.)
+  RewriteRule (.*) %{REQUEST_URI}/ [R=301,L]
 
 </IfModule>
